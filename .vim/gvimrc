@@ -1,0 +1,9 @@
+" GUI options
+set lines=43
+set guioptions -=m 
+set guioptions -=T
+"set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-Bold\ 9
+set guifont=SauceCodePro\ Nerd\ Font\ Mono\ Semi-Bold\ 9
+
+colorscheme solarized8
+

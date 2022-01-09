@@ -1,0 +1,201 @@
+" Don't try to be vi compatible
+set nocompatible
+
+" Helps force plugins to load correctly when it is turned back on below
+filetype off
+
+" NERDTree options
+" Open the tree on <C-n>:
+" map <C-n> :AirlineRefresh <bar> NERDTreeToggle<CR>
+" Remove the help line from the top of the tree
+" let NERDTreeMinimalUI=1
+
+" Fern options
+map <C-n> :Fern . -drawer<CR>
+let g:fern#renderer = "nerdfont"
+" function! s:init_fern() abort
+"   nmap <buffer><expr>
+"         \ <Plug>(fern-my-expand-or-enter)
+"         \ fern#smart#drawer(
+"         \   "\<Plug>(fern-open-or-expand)",
+"         \   "\<Plug>(fern-open-or-enter)",
+"         \ )
+"   nmap <buffer><expr>
+"         \ <Plug>(fern-my-collapse-or-leave)
+"         \ fern#smart#drawer(
+"         \   "\<Plug>(fern-action-collapse)",
+"         \   "\<Plug>(fern-action-leave)",
+"         \ )
+"   nmap <buffer><nowait> l <Plug>(fern-my-expand-or-enter)
+"   nmap <buffer><nowait> h <Plug>(fern-my-collapse-or-leave)
+" endfunction
+" 
+" augroup fern-custom
+"   autocmd! *
+"   autocmd FileType fern call s:init_fern()
+" augroup END
+
+
+" Integrate with powerline fonts
+let g:airline_powerline_fonts = 1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" ALE
+let g:ale_floating_window_border = repeat([''], 6)
+" Turn on syntax highlighting
+syntax on
+
+" For plugins to load correctly
+filetype plugin indent on
+
+" TODO: Pick a leader key
+" let mapleader = ","
+
+" Security
+set modelines=0
+
+" Show line numbers
+set number
+
+" Show file stats
+set ruler
+
+" Blink cursor on error instead of beeping
+set visualbell
+
+" Encoding
+set encoding=utf-8
+
+" Whitespace
+set wrap
+set textwidth=79
+set colorcolumn=80
+set formatoptions=tcqrn1
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set noshiftround
+
+" Cursor motion
+set scrolloff=3
+set backspace=indent,eol,start
+set matchpairs+=<:> " use % to jump between pairs
+runtime! macros/matchit.vim
+
+" Move up/down editor lines
+nnoremap j gj
+nnoremap k gk
+
+" Allow hidden buffers
+set hidden
+
+" Rendering
+set ttyfast
+
+" Status bar
+set laststatus=2
+set ttimeoutlen=50
+
+" Last line
+set showmode
+set showcmd
+
+" Searching
+"nnoremap / /\v
+"vnoremap / /\v
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+"map <leader><space> :let @/=''<cr> " clear search
+" Make double-<Esc> clear search highlights
+nnoremap <silent> <Esc><Esc> <Esc>:noh<CR><Esc>
+
+" Remap help key.
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+nnoremap <F1> :set invfullscreen<CR>
+vnoremap <F1> :set invfullscreen<CR>
+
+" Spelling
+set spell
+
+" Save window size and position in session
+set sessionoptions+=resize
+"set sessionoptions+=resize,winpos
+
+" To add the proper PEP 8 indentation (Python)
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ | set softtabstop=4
+    \ | set shiftwidth=4
+    \ | set textwidth=79
+    \ | set expandtab
+    \ | set autoindent
+    \ | set fileformat=unix
+
+" Flag unnecessary whitespace
+"define BadWhitespace before using in a match
+autocmd ColorScheme * highlight BadWhitespace ctermbg=red guibg=tan
+highlight BadWhitespace ctermbg=red guibg=tan
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" Bd works as bd but without touching the window splits
+command! Bd bp|bd #
+
+"Remove all trailing whitespace by pressing F2
+nnoremap <F2> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+
+" For full stack development
+"au BufNewFile,BufRead *.js, *.html, *.css
+au BufNewFile,BufRead *.js
+    \ set tabstop=2
+    \ | set softtabstop=2
+    \ | set shiftwidth=2
+
+
+"python with virtualenv support
+"py3 << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+"  project_base_dir = os.environ['VIRTUAL_ENV']
+"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"  exec(compile(open(activate_this, "rb").read(), activate_this, 'exec'), dict(__file__=activate_this))
+"  #execfile(activate_this, dict(__file__=activate_this))
+"EOF
+
+" reload vim config automatically when file is changed
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+
+" Formatting
+"map <leader>q gqip
+
+" Visualize tabs and newlines
+"set listchars=tab:?\ ,eol:¬
+" Uncomment this to enable by default:
+" set list " To enable by default
+" Or use your leader key + l to toggle on/off
+"map <leader>l :set list!<CR> " Toggle tabs and EOL
+
+" Color scheme (terminal)
+"set t_Co=256
+"set background=dark
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
+" in ~/.vim/colors/ and uncomment:
+"colorscheme desert
+"
+"

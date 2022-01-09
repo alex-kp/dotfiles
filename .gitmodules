@@ -1,0 +1,62 @@
+[submodule ".vim/pack/plugins/start/vim-airline"]
+	path = .vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+	shallow = true
+[submodule ".vim/pack/plugins/start/vim-airline-themes"]
+	path = .vim/pack/plugins/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+	shallow = true
+[submodule ".vim/pack/plugins/start/vim-solarized8"]
+	path = .vim/pack/plugins/start/vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
+	shallow = true
+[submodule ".vim/pack/plugins/start/vim-gitgutter"]
+	path = .vim/pack/plugins/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+	shallow = true
+[submodule ".vim/pack/plugins/start/vim-devicons"]
+	path = .vim/pack/plugins/start/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons.git
+	shallow = true
+[submodule ".vim/pack/plugins/start/vim-fugitive"]
+	path = .vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+	shallow = true
+[submodule ".vim/pack/plugins/start/ale"]
+	path = .vim/pack/plugins/start/ale
+	url = https://github.com/dense-analysis/ale.git
+	shallow = true
+[submodule ".vim/pack/plugins/start/vim-python-pep8-indent"]
+	path = .vim/pack/plugins/start/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent.git
+	shallow = true
+[submodule ".vim/pack/plugins/start/YouCompleteMe"]
+	path = .vim/pack/plugins/start/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe.git
+	shallow = true
+[submodule ".vim/pack/plugins/start/editorconfig-vim"]
+	shallow = true
+	path = .vim/pack/plugins/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule ".vim/pack/plugins/start/tagbar"]
+	shallow = true
+	path = .vim/pack/plugins/start/tagbar
+	url = https://github.com/preservim/tagbar.git
+[submodule ".vim/pack/plugins/start/fern.vim"]
+	shallow = true
+	path = .vim/pack/plugins/start/fern.vim
+	url = https://github.com/lambdalisue/fern.vim.git
+[submodule ".vim/pack/plugins/start/lambdalisue"]
+	shallow = true
+[submodule ".vim/pack/plugins/start/fern-renderer-nerdfont.vim"]
+	shallow = true
+	path = .vim/pack/plugins/start/fern-renderer-nerdfont.vim
+	url = https://github.com/lambdalisue/fern-renderer-nerdfont.vim.git
+[submodule ".vim/pack/plugins/start/nerdfont.vim"]
+	shallow = true
+	path = .vim/pack/plugins/start/nerdfont.vim
+	url = https://github.com/lambdalisue/nerdfont.vim.git
+[submodule ".vim/pack/plugins/start/fern-git-status.vim"]
+	shallow = true
+	path = .vim/pack/plugins/start/fern-git-status.vim
+	url = https://github.com/lambdalisue/fern-git-status.vim.git
