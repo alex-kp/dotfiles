@@ -4,6 +4,9 @@ set nocompatible
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
+" fzf options
+set rtp+=~/.fzf
+
 " NERDTree options
 " Open the tree on <C-n>:
 " map <C-n> :AirlineRefresh <bar> NERDTreeToggle<CR>
