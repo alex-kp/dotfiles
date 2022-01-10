@@ -60,3 +60,13 @@
 	shallow = true
 	path = .vim/pack/plugins/start/fern-git-status.vim
 	url = https://github.com/lambdalisue/fern-git-status.vim.git
+[submodule "/home/dev/.fzf"]
+	shallow = true
+[submodule ".fzf"]
+	shallow = true
+	path = .fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule ".vim/pack/plugins/start/fzf.vim"]
+	shallow = true
+	path = .vim/pack/plugins/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git

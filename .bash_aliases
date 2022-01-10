@@ -9,6 +9,26 @@
 export DOTFILES_GIT_DIR=${HOME}/.cfg
 alias config='/usr/bin/git --git-dir=${DOTFILES_GIT_DIR} --work-tree=$HOME'
 
+# This makes .bashrc source the files in .bashrc.d
+config-add-bashrc-d () {
+    # Only add the line if it's not already there..
+    LINE="source ${HOME}/.bashrc.d/loader.sh"
+    FILE="${HOME}/.bashrc"
+    grep -qF -- "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
+}
+
+config-submodule-add () {
+    # shallow submodule, see:
+    # https://stackoverflow.com/questions/2144406/
+    #   how-to-make-shallow-git-submodules
+    ( cd ~ &&       # start from home dir
+        config config -f .gitmodules submodule.${2}.shallow true &&
+        config submodule add --depth 1 \
+            https://github.com/${1}.git ${2}
+    )
+}
+
+
 # Skeleton for bootstrap on fresh Ubuntu install
 config-bootstrap () {   #TODO: Does not work yet
     # Make sure that the required packages are installed
@@ -17,21 +37,20 @@ config-bootstrap () {   #TODO: Does not work yet
     # Setup for YCM:
     ( cd ~/.vim/pack/plugins/start/YouCompleteMe &&
         python3 install.py --all )
+
+    config-add-bashrc-d
+    # install fzf
+    .fzf/install --key-bindings --completion --no-update-rc
 }
+
+alias vim-plugin-list='tree .vim/pack/plugins/ -L 2 -d'
 
 # shapeshed link ref:
 #   https://shapeshed.com/vim-packages/
 vim-plugin-add () {
-    # shallow submodule, see:
-    # https://stackoverflow.com/questions/2144406/
-    #   how-to-make-shallow-git-submodules
-    ( cd ~ &&       # start from home dir
-        SNAME=`echo ${1} | sed 's:.*/::'`
-        SUBMODPATH=".vim/pack/plugins/start/${SNAME}"
-        config config -f .gitmodules submodule.${SUBMODPATH}.shallow true &&
-        config submodule add --depth 1 \
-            https://github.com/${1}.git ${SUBMODPATH}
-    )
+    SNAME=`echo ${1} | sed 's:.*/::'`
+    SUBMODPATH=".vim/pack/plugins/start/${SNAME}"
+    config-submodule-add ${1} ${SUBMODPATH}
 }
 
 vim-plugin-remove () {
@@ -44,4 +63,8 @@ vim-plugin-remove () {
     )
 
 }
-#vim-plugin-update(-all)
+
+vim-plugin-update-all () {
+    config submodule update --rebase --remote
+}
+
