@@ -1,43 +1,13 @@
 " Don't try to be vi compatible
 set nocompatible
 
-" Helps force plugins to load correctly when it is turned back on below
-filetype off
-
 " fzf options
 set rtp+=~/.fzf
-
-" NERDTree options
-" Open the tree on <C-n>:
-" map <C-n> :AirlineRefresh <bar> NERDTreeToggle<CR>
-" Remove the help line from the top of the tree
-" let NERDTreeMinimalUI=1
+let $BAT_THEME='GitHub'
 
 " Fern options
 map <C-n> :Fern . -drawer<CR>
 let g:fern#renderer = "nerdfont"
-" function! s:init_fern() abort
-"   nmap <buffer><expr>
-"         \ <Plug>(fern-my-expand-or-enter)
-"         \ fern#smart#drawer(
-"         \   "\<Plug>(fern-open-or-expand)",
-"         \   "\<Plug>(fern-open-or-enter)",
-"         \ )
-"   nmap <buffer><expr>
-"         \ <Plug>(fern-my-collapse-or-leave)
-"         \ fern#smart#drawer(
-"         \   "\<Plug>(fern-action-collapse)",
-"         \   "\<Plug>(fern-action-leave)",
-"         \ )
-"   nmap <buffer><nowait> l <Plug>(fern-my-expand-or-enter)
-"   nmap <buffer><nowait> h <Plug>(fern-my-collapse-or-leave)
-" endfunction
-" 
-" augroup fern-custom
-"   autocmd! *
-"   autocmd FileType fern call s:init_fern()
-" augroup END
-
 
 " Integrate with powerline fonts
 let g:airline_powerline_fonts = 1
@@ -48,6 +18,9 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
 
 " ALE
 let g:ale_floating_window_border = repeat([''], 6)
@@ -90,7 +63,6 @@ set noshiftround
 set scrolloff=3
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
 
 " Move up/down editor lines
 nnoremap j gj
@@ -111,8 +83,6 @@ set showmode
 set showcmd
 
 " Searching
-"nnoremap / /\v
-"vnoremap / /\v
 set hlsearch
 set incsearch
 set ignorecase
@@ -122,33 +92,33 @@ set showmatch
 " Make double-<Esc> clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:noh<CR><Esc>
 
-" Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
-
 " Spelling
 set spell
 
 " Save window size and position in session
 set sessionoptions+=resize
-"set sessionoptions+=resize,winpos
 
 " To add the proper PEP 8 indentation (Python)
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ | set softtabstop=4
-    \ | set shiftwidth=4
-    \ | set textwidth=79
-    \ | set expandtab
-    \ | set autoindent
-    \ | set fileformat=unix
+augroup pythonindent
+    au!
+    au BufNewFile,BufRead *.py
+        \ set tabstop=4
+        \ | set softtabstop=4
+        \ | set shiftwidth=4
+        \ | set textwidth=79
+        \ | set expandtab
+        \ | set autoindent
+        \ | set fileformat=unix
+augroup END
 
 " Flag unnecessary whitespace
 "define BadWhitespace before using in a match
-autocmd ColorScheme * highlight BadWhitespace ctermbg=red guibg=tan
-highlight BadWhitespace ctermbg=red guibg=tan
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+augroup flagwhitespace
+    au!
+    au ColorScheme * highlight BadWhitespace ctermbg=red guibg=tan
+    highlight BadWhitespace ctermbg=red guibg=tan
+    au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+augroup END
 
 " Bd works as bd but without touching the window splits
 command! Bd bp|bd #
@@ -159,22 +129,14 @@ nnoremap <F2> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " For full stack development
 "au BufNewFile,BufRead *.js, *.html, *.css
-au BufNewFile,BufRead *.js
-    \ set tabstop=2
-    \ | set softtabstop=2
-    \ | set shiftwidth=2
+augroup jsdev
+    au!
+    au BufNewFile,BufRead *.js
+        \ set tabstop=2
+        \ | set softtabstop=2
+        \ | set shiftwidth=2
+augroup END
 
-
-"python with virtualenv support
-"py3 << EOF
-"import os
-"import sys
-"if 'VIRTUAL_ENV' in os.environ:
-"  project_base_dir = os.environ['VIRTUAL_ENV']
-"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"  exec(compile(open(activate_this, "rb").read(), activate_this, 'exec'), dict(__file__=activate_this))
-"  #execfile(activate_this, dict(__file__=activate_this))
-"EOF
 
 " reload vim config automatically when file is changed
 augroup myvimrc
@@ -195,10 +157,70 @@ augroup END
 " Color scheme (terminal)
 "set t_Co=256
 "set background=dark
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 "colorscheme desert
 "
-"
+
+" Bind F5 to save file if modified and execute python script in a buffer.
+" nnoremap <silent> <F5> :call SaveAndExecutePython()<CR>
+" vnoremap <silent> <F5> :<C-u>call SaveAndExecutePython()<CR>
+
+function! SaveAndExecutePython()
+    " SOURCE [reusable window]: https://github.com/fatih/vim-go/blob/master/autoload/go/ui.vim
+
+    " save and reload current file
+    silent execute "update | edit"
+
+    " get file path of current file
+    let s:current_buffer_file_path = expand("%")
+
+    let s:output_buffer_name = "Python"
+    let s:output_buffer_filetype = "output"
+
+    " reuse existing buffer window if it exists otherwise create a new one
+    if !exists("s:buf_nr") || !bufexists(s:buf_nr)
+        silent execute 'botright new ' . s:output_buffer_name
+        let s:buf_nr = bufnr('%')
+    elseif bufwinnr(s:buf_nr) == -1
+        silent execute 'botright new'
+        silent execute s:buf_nr . 'buffer'
+    elseif bufwinnr(s:buf_nr) != bufwinnr('%')
+        silent execute bufwinnr(s:buf_nr) . 'wincmd w'
+    endif
+
+    silent execute "setlocal filetype=" . s:output_buffer_filetype
+    setlocal bufhidden=delete
+    setlocal buftype=nofile
+    setlocal noswapfile
+    setlocal nobuflisted
+    setlocal winfixheight
+    setlocal cursorline " make it easy to distinguish
+    setlocal nonumber
+    setlocal norelativenumber
+    setlocal showbreak=""
+
+    " clear the buffer
+    setlocal noreadonly
+    setlocal modifiable
+    %delete _
+
+    " add the console output
+    silent execute ".!python3 " . shellescape(s:current_buffer_file_path, 1)
+
+    " resize window to content length
+    " Note: This is annoying because if you print a lot of lines then your code
+    "       buffer is forced to a height of one line every time you run this
+    "       function.  However without this line the buffer starts off as
+    "       a default size and if you resize the buffer then it keeps that
+    "       custom size after repeated runs of this function.  But if you close
+    "       the output buffer then it returns to using the default size when
+    "       its recreated
+    "execute 'resize' . line('$')
+
+    " make the buffer non modifiable
+    setlocal readonly
+    setlocal nomodifiable
+endfunction
