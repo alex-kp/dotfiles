@@ -22,3 +22,5 @@ tools/
 tmp/
 .fzf.bash
 .vim/.netrwhist
+.python_history
+.vimspector.log

@@ -70,3 +70,11 @@
 	shallow = true
 	path = .vim/pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule ".vim/pack/plugins/start/vim-unimpaired"]
+	shallow = true
+	path = .vim/pack/plugins/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule ".vim/pack/plugins/start/vimspector"]
+	shallow = true
+	path = .vim/pack/plugins/start/vimspector
+	url = https://github.com/puremourning/vimspector.git

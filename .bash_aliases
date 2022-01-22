@@ -37,6 +37,8 @@ config-bootstrap () {   #TODO: Does not work yet
     # Setup for YCM:
     ( cd ~/.vim/pack/plugins/start/YouCompleteMe &&
         python3 install.py --all )
+    # Vimspector plugin installs
+    vim +":VimspectorInstall debugpy" +qall
 
     config-add-bashrc-d
     # install fzf
@@ -45,12 +47,18 @@ config-bootstrap () {   #TODO: Does not work yet
 
 alias vim-plugin-list='tree .vim/pack/plugins/ -L 2 -d'
 
+# Generate the helptags for the new module
+vim-update-helptags () {
+    vim +"helptags ALL" +qall
+}
+
 # shapeshed link ref:
 #   https://shapeshed.com/vim-packages/
 vim-plugin-add () {
     SNAME=`echo ${1} | sed 's:.*/::'`
     SUBMODPATH=".vim/pack/plugins/start/${SNAME}"
     config-submodule-add ${1} ${SUBMODPATH}
+    vim-update-helptags
 }
 
 vim-plugin-remove () {
@@ -61,7 +69,7 @@ vim-plugin-remove () {
         rm -rf ${DOTFILES_GIT_DIR}/modules/${SUBMODPATH} &&
         config rm -f ${SUBMODPATH}
     )
-
+    vim-update-helptags
 }
 
 vim-plugin-update-all () {
