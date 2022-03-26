@@ -42,24 +42,12 @@
 	shallow = true
 	path = .vim/pack/plugins/start/tagbar
 	url = https://github.com/preservim/tagbar.git
-[submodule ".vim/pack/plugins/start/fern.vim"]
-	shallow = true
-	path = .vim/pack/plugins/start/fern.vim
-	url = https://github.com/lambdalisue/fern.vim.git
 [submodule ".vim/pack/plugins/start/lambdalisue"]
 	shallow = true
-[submodule ".vim/pack/plugins/start/fern-renderer-nerdfont.vim"]
-	shallow = true
-	path = .vim/pack/plugins/start/fern-renderer-nerdfont.vim
-	url = https://github.com/lambdalisue/fern-renderer-nerdfont.vim.git
 [submodule ".vim/pack/plugins/start/nerdfont.vim"]
 	shallow = true
 	path = .vim/pack/plugins/start/nerdfont.vim
 	url = https://github.com/lambdalisue/nerdfont.vim.git
-[submodule ".vim/pack/plugins/start/fern-git-status.vim"]
-	shallow = true
-	path = .vim/pack/plugins/start/fern-git-status.vim
-	url = https://github.com/lambdalisue/fern-git-status.vim.git
 [submodule "/home/dev/.fzf"]
 	shallow = true
 [submodule ".fzf"]
@@ -78,3 +66,7 @@
 	shallow = true
 	path = .vim/pack/plugins/start/vimspector
 	url = https://github.com/puremourning/vimspector.git
+[submodule ".vim/pack/plugins/start/nerdtree"]
+	shallow = true
+	path = .vim/pack/plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git

@@ -1,13 +1,22 @@
 " Don't try to be vi compatible
 set nocompatible
 
+" Pick a leader key
+let mapleader = ","
+
 " fzf options
 set rtp+=~/.fzf
 let $BAT_THEME='GitHub'
 
 " Fern options
-map <C-n> :Fern . -drawer<CR>
-let g:fern#renderer = "nerdfont"
+" map <C-n> :Fern . -drawer<CR>
+" let g:fern#renderer = "nerdfont"
+
+" NERDTree options
+" Open the tree on <C-n>:
+map <C-n> :AirlineRefresh <bar> NERDTreeToggle<CR>
+" Remove the help line from the top of the tree
+let NERDTreeMinimalUI=1
 
 " Integrate with powerline fonts
 let g:airline_powerline_fonts = 1
@@ -17,10 +26,29 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " tagbar
-nmap <F8> :TagbarToggle<CR>
+nmap <Leader>tt :TagbarToggle<CR>
+" make
+nmap <Leader>m :w <bar> :make<CR>
 
 " Vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
+" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
+" Exit the debug mode
+nmap <Leader>dx <Plug>VimspectorBalloonEval
+" https://dev.to/iggredible/debugging-in-vim-with-vimspector-4n0m
+" nnoremap <Leader>dd :call vimspector#Launch()<CR>
+nnoremap <Leader>de :call vimspector#Reset()<CR>
+" nnoremap <Leader>dc :call vimspector#Continue()<CR>
+" nnoremap <Leader>dt :call vimspector#ToggleBreakpoint()<CR>
+" nnoremap <Leader>dT :call vimspector#ClearBreakpoints()<CR>
+" nmap <Leader>dk <Plug>VimspectorRestart
+" nmap <Leader>dh <Plug>VimspectorStepOut
+" nmap <Leader>dl <Plug>VimspectorStepInto
+" nmap <Leader>dj <Plug>VimspectorStepOver
 
 " ALE
 let g:ale_floating_window_border = repeat([''], 6)
@@ -30,14 +58,12 @@ syntax on
 " For plugins to load correctly
 filetype plugin indent on
 
-" TODO: Pick a leader key
-" let mapleader = ","
-
 " Security
 set modelines=0
 
 " Show line numbers
 set number
+set relativenumber
 
 " Show file stats
 set ruler
