@@ -29,23 +29,42 @@ config-submodule-add () {
 }
 
 
+config-fontinstall () {
+    FONTDIR="${HOME}/.local/share/fonts"
+    # Install the fonts
+    ( mkdir -p ${FONTDIR} &&
+        cd ${FONTDIR} &&
+        wget -c https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/SourceCodePro.zip &&
+        unzip SourceCodePro.zip )
+    #rm SourceCodePro.zip
+}
+
 # Skeleton for bootstrap on fresh Ubuntu install
 config-bootstrap () {   #TODO: Does not work yet
     # Make sure that the required packages are installed
+    source ~/package-list
     # Install the fonts
+    config-fontinstall
     # Init all the submodules
+    config submodule init
+    config submodule update
     # Setup for YCM:
-    ( cd ~/.vim/pack/plugins/start/YouCompleteMe &&
-        python3 install.py --all )
+    vim-ycm-reinstall
     # Vimspector plugin installs
     vim +":VimspectorInstall debugpy" +qall
 
     config-add-bashrc-d
     # install fzf
-    .fzf/install --key-bindings --completion --no-update-rc
+    ~/.fzf/install --key-bindings --completion --no-update-rc
 }
 
 alias vim-plugin-list='tree .vim/pack/plugins/ -L 2 -d'
+
+vim-ycm-reinstall () {
+    ( cd ~/.vim/pack/plugins/start/YouCompleteMe &&
+        git submodule update --init --recursive &&
+        python3 install.py --clangd-completer --cs-completer --rust-completer --java-completer --ts-completer )
+}
 
 # Generate the helptags for the new module
 vim-update-helptags () {
