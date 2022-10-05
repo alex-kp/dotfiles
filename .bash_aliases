@@ -63,7 +63,7 @@ alias vim-plugin-list='tree .vim/pack/plugins/ -L 2 -d'
 vim-ycm-reinstall () {
     ( cd ~/.vim/pack/plugins/start/YouCompleteMe &&
         git submodule update --init --recursive &&
-        python3 install.py --clangd-completer --cs-completer --rust-completer --java-completer --ts-completer )
+        python3 install.py --clangd-completer --cs-completer --rust-completer --ts-completer )
 }
 
 # Generate the helptags for the new module
