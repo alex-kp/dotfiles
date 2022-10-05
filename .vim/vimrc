@@ -7,6 +7,7 @@ let mapleader = ","
 " fzf options
 set rtp+=~/.fzf
 let $BAT_THEME='GitHub'
+let g:fzf_layout = { 'down': '40%' }
 
 " Fern options
 " map <C-n> :Fern . -drawer<CR>
@@ -29,6 +30,21 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 nmap <Leader>tt :TagbarToggle<CR>
 " make
 nmap <Leader>m :w <bar> :make<CR>
+
+" Ycm shortcuts / options
+nmap <Leader>yg :YcmCompleter GoTo<CR>
+nmap <Leader>yr :YcmCompleter RefactorRename <C-R><C-W>
+nmap <Leader>yf :YcmCompleter FixIt<CR>
+nmap <leader>yd <plug>(YCMHover)
+let g:ycm_log_level = 'info'
+"let g:ycm_log_level = 'debug'
+let g:ycm_auto_hover = ''
+let g:ycm_clangd_args = ['--clang-tidy']
+
+
+" Ripgrep
+nmap <Leader>rr :Rg <C-R><C-W><CR>
+
 
 " Vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
