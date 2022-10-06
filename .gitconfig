@@ -1,5 +1,8 @@
-# stolen from https://github.com/jessfraz/dotfiles/blob/master/.gitconfig
+# A file for username and email and other local conf:
+[include]
+    path = ~/.gitconfig.local
 
+# stolen from https://github.com/jessfraz/dotfiles/blob/master/.gitconfig
 [alias]
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits

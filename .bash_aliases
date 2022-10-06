@@ -49,6 +49,8 @@ config-bootstrap () {   #TODO: Does not work yet
     vim +":VimspectorInstall debugpy" +qall
     # install fzf
     ~/.fzf/install --key-bindings --completion --no-update-rc
+    # Remind that we will need a .gitconfig.local
+    touch .gitconfig.local
 }
 
 alias vim-plugin-list='tree .vim/pack/plugins/ -L 2 -d'
