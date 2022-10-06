@@ -6,7 +6,6 @@
 .cache/
 .config/
 .dbus/
-.gitconfig
 .landscape/
 .local/
 .motd_shown
