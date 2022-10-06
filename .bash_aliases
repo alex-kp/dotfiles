@@ -6,16 +6,12 @@
 #   https://dotfiles.github.io/
 #   https://wiki.archlinux.org/title/Dotfiles
 
+# This isn't an alias but allows us run more things from the .bashrc context by
+# loading scripts from the .bashrc.d directory:
+source /home/dev/.bashrc.d/loader.sh
+
 export DOTFILES_GIT_DIR=${HOME}/.cfg
 alias config='/usr/bin/git --git-dir=${DOTFILES_GIT_DIR} --work-tree=$HOME'
-
-# This makes .bashrc source the files in .bashrc.d
-config-add-bashrc-d () {
-    # Only add the line if it's not already there..
-    LINE="source ${HOME}/.bashrc.d/loader.sh"
-    FILE="${HOME}/.bashrc"
-    grep -qF -- "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
-}
 
 config-submodule-add () {
     # shallow submodule, see:
@@ -27,7 +23,6 @@ config-submodule-add () {
             https://github.com/${1}.git ${2}
     )
 }
-
 
 config-fontinstall () {
     FONTDIR="${HOME}/.local/share/fonts"
@@ -52,8 +47,6 @@ config-bootstrap () {   #TODO: Does not work yet
     vim-ycm-reinstall
     # Vimspector plugin installs
     vim +":VimspectorInstall debugpy" +qall
-
-    config-add-bashrc-d
     # install fzf
     ~/.fzf/install --key-bindings --completion --no-update-rc
 }
