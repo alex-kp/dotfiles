@@ -5,6 +5,7 @@
 .bashrc
 .cache/
 .config/
+.gitconfig.local
 .dbus/
 .landscape/
 .local/
@@ -23,3 +24,8 @@ tmp/
 .vim/.netrwhist
 .python_history
 .vimspector.log
+.java/
+.lesshst
+.stm32cubemx/
+.stmcufinder/
+STM32Cube/
