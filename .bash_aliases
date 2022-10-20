@@ -53,7 +53,7 @@ config-bootstrap () {   #TODO: Does not work yet
     touch .gitconfig.local
 }
 
-alias vim-plugin-list='tree .vim/pack/plugins/ -L 2 -d'
+alias vim-plugin-list='tree ~/.vim/pack/plugins/ -L 2 -d'
 
 vim-ycm-reinstall () {
     ( cd ~/.vim/pack/plugins/start/YouCompleteMe &&
