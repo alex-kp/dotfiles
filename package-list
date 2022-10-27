@@ -1,8 +1,10 @@
 sudo apt-get install -y pwgen tree bear ruby xterm zip unzip gitk libncurses5 \
     libncursesw5 libpython2.7 libncurses5-dev libncursesw5-dev python3-venv   \
     flake8 pylint python3-jedi build-essential cmake python3-dev golang       \
-    nodejs default-jdk npm vim-gtk gdb universal-ctags bat ripgrep git-gui
+    nodejs default-jdk npm vim-gtk gdb universal-ctags bat ripgrep git-gui    \
+    python3-pip
 
 # notes
 # sudo apt-get install -y libncurses5 libncursesw5 libpython2.7     # for arm-none-eabi-gdb-py
 # sudo apt-get install -y libncurses5-dev libncursesw5-dev        # for python gnureadline
+python3 -m pip install --user powerline-shell

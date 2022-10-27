@@ -1,0 +1,1 @@
+pathprepend ~/.local/bin
