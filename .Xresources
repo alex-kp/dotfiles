@@ -1,0 +1,23 @@
+! from http://www.futurile.net/2016/06/14/xterm-setup-and-truetype-font-configuration/
+xterm*faceName: Ubuntu Mono
+xterm*faceSize: 10
+xterm*renderFont: true
+! VT Font Menu: Unreadable
+xterm*faceSize1: 8
+! VT font menu: Tiny
+xterm*faceSize2: 10
+! VT font menu: Medium
+xterm*faceSize3: 12
+! VT font menu: Large
+xterm*faceSize4: 16
+! VT font menu: Huge
+xterm*faceSize5: 22
+! Only select text
+xterm*highlightSelection: true
+! Remove trailing spaces
+xterm*trimSelection: true
+! Lines of output that you can scroll back over
+xterm*saveLines: 4096
+! Turn the scrollbar on, and put it on the right
+xterm*scrollBar: true
+xterm*rightScrollBar: true
