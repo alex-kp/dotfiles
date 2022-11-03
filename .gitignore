@@ -4,7 +4,7 @@
 .bash_logout
 .bashrc
 .cache/
-.config/
+.config/git/
 .gitconfig.local
 .dbus/
 .landscape/
