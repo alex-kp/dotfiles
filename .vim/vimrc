@@ -45,6 +45,27 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " Ripgrep
 nmap <Leader>rr :Rg <C-R><C-W><CR>
 
+" vim-clang-format
+let g:clang_format#detect_style_file = 1
+let g:clang_format#style_options = {
+            \ "BasedOnStyle": "WebKit",
+            \ "AlignConsecutiveMacros": "AcrossEmptyLines",
+            \ "ColumnLimit":     80,
+            \ "KeepEmptyLinesAtTheStartOfBlocks": "false",
+            \ "PointerAlignment": "Middle",
+            \ "ReferenceAlignment": "Right",
+            \ "SpaceAfterCStyleCast": "true",
+            \ "SpaceInEmptyParentheses": "true"}
+
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" if you install vim-operator-user
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+
 
 " Vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
