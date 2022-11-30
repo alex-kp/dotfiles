@@ -43,6 +43,8 @@ config-bootstrap () {   #TODO: Does not work yet
     # Init all the submodules
     config submodule init
     config submodule update
+    # Create dirs for vim backups
+    mkdir -p ~/.vim/{backup_files,swap_files,undo_files}
     # Setup for YCM:
     vim-ycm-reinstall
     # Vimspector plugin installs
