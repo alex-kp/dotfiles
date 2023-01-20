@@ -22,22 +22,10 @@
 	path = .vim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	shallow = true
-[submodule ".vim/pack/plugins/start/ale"]
-	path = .vim/pack/plugins/start/ale
-	url = https://github.com/dense-analysis/ale.git
-	shallow = true
 [submodule ".vim/pack/plugins/start/vim-python-pep8-indent"]
 	path = .vim/pack/plugins/start/vim-python-pep8-indent
 	url = https://github.com/Vimjas/vim-python-pep8-indent.git
 	shallow = true
-[submodule ".vim/pack/plugins/start/YouCompleteMe"]
-	path = .vim/pack/plugins/start/YouCompleteMe
-	url = https://github.com/ycm-core/YouCompleteMe.git
-	shallow = true
-[submodule ".vim/pack/plugins/start/editorconfig-vim"]
-	shallow = true
-	path = .vim/pack/plugins/start/editorconfig-vim
-	url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule ".vim/pack/plugins/start/tagbar"]
 	shallow = true
 	path = .vim/pack/plugins/start/tagbar
@@ -50,14 +38,6 @@
 	url = https://github.com/lambdalisue/nerdfont.vim.git
 [submodule "/home/dev/.fzf"]
 	shallow = true
-[submodule ".fzf"]
-	shallow = true
-	path = .fzf
-	url = https://github.com/junegunn/fzf.git
-[submodule ".vim/pack/plugins/start/fzf.vim"]
-	shallow = true
-	path = .vim/pack/plugins/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
 [submodule ".vim/pack/plugins/start/vim-unimpaired"]
 	shallow = true
 	path = .vim/pack/plugins/start/vim-unimpaired
@@ -78,3 +58,20 @@
 	shallow = true
 	path = .vim/pack/plugins/start/vim-operator-user
 	url = https://github.com/kana/vim-operator-user.git
+[submodule ".fzf"]
+	path = .fzf
+	url = https://github.com/junegunn/fzf
+[submodule ".vim/pack/plugins/start/YouCompleteMe.git"]
+	shallow = true
+[submodule ".vim/pack/plugins/start/YouCompleteMe"]
+	shallow = true
+	path = .vim/pack/plugins/start/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe.git
+[submodule ".vim/pack/plugins/start/ale"]
+	shallow = true
+	path = .vim/pack/plugins/start/ale
+	url = https://github.com/dense-analysis/ale.git
+[submodule ".vim/pack/plugins/start/editorconfig-vim"]
+	shallow = true
+	path = .vim/pack/plugins/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git

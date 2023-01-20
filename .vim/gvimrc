@@ -6,5 +6,6 @@ set guioptions -=T
 "set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-Bold\ 9
 set guifont=SauceCodePro\ Nerd\ Font\ Mono\ Semi-Bold\ 9
 
-colorscheme solarized8
+"colorscheme solarized8
+set background=light
 
