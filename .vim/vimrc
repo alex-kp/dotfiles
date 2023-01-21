@@ -32,6 +32,7 @@ nmap <Leader>tt :TagbarToggle<CR>
 nmap <Leader>m :w <bar> :make<CR>
 
 " Ycm shortcuts / options
+nmap <Leader>yy :YcmRestartServer<CR>
 nmap <Leader>yg :YcmCompleter GoTo<CR>
 nmap <Leader>yr :YcmCompleter RefactorRename <C-R><C-W>
 nmap <Leader>yf :YcmCompleter FixIt<CR>

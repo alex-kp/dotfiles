@@ -26,12 +26,13 @@ config-submodule-add () {
 
 config-fontinstall () {
     FONTDIR="${HOME}/.local/share/fonts"
-    # Install the fonts
+    # Install the font
     ( mkdir -p ${FONTDIR} &&
         cd ${FONTDIR} &&
-        wget -c https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/SourceCodePro.zip &&
-        unzip SourceCodePro.zip )
-    #rm SourceCodePro.zip
+        wget -c https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/${1}.zip &&
+        unzip ${1}.zip )
+    #rm ${1}.zip
+    fc-cache -fv
 }
 
 # Skeleton for bootstrap on fresh Ubuntu install
@@ -39,7 +40,7 @@ config-bootstrap () {   #TODO: Does not work yet
     # Make sure that the required packages are installed
     source ~/package-list
     # Install the fonts
-    config-fontinstall
+    config-fontinstall SourceCodePro
     # Init all the submodules
     config submodule init
     config submodule update
