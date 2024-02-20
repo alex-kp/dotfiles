@@ -89,6 +89,9 @@
 	# from trevor bramble https://twitter.com/TrevorBramble/status/774292970681937920
 	alias=!git config -l | grep ^alias | cut -c 7- | sort
 
+    # from https://stackoverflow.com/questions/957928
+    root = rev-parse --show-toplevel
+
 	# from myles borins https://github.com/TheAlphaNerd/Dot-files/blob/master/.gitconfig
 	# github broke some workflow... this will make it less painful
     #patchit = "!f() { echo $1.patch | sed s_pull/[0-9]*/commits_commit_ | xargs curl -L | git am --whitespace=fix; }; f"
@@ -146,6 +149,7 @@
 
 	# Detect copies as well as renames
 	renames = copies
+	tool = meld
 
 [help]
 
@@ -198,3 +202,5 @@
     #rebase = true
 [init]
 	defaultBranch = main
+[difftool]
+	prompt = false
