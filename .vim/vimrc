@@ -46,6 +46,9 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " Ripgrep
 nmap <Leader>rr :Rg <C-R><C-W><CR>
 
+" find/replace
+nnoremap <c-s> :%s///g<left><left>
+
 " vim-clang-format
 let g:clang_format#detect_style_file = 1
 let g:clang_format#style_options = {
@@ -165,6 +168,9 @@ set spell
 
 " Save window size and position in session
 set sessionoptions+=resize
+
+" To update (e.g.) tagbar more frequently
+set updatetime=1000
 
 " To add the proper PEP 8 indentation (Python)
 augroup pythonindent
