@@ -91,6 +91,7 @@
 
     # from https://stackoverflow.com/questions/957928
     root = rev-parse --show-toplevel
+	meld = !git difftool -t meld --dir-diff
 
 	# from myles borins https://github.com/TheAlphaNerd/Dot-files/blob/master/.gitconfig
 	# github broke some workflow... this will make it less painful
@@ -157,6 +158,7 @@
 	autocorrect = 1
 
 [merge]
+	tool = meld
 
 	# Include summaries of merged commits in newly created merge commit messages
     #log = true
@@ -203,4 +205,6 @@
 [init]
 	defaultBranch = main
 [difftool]
+	prompt = false
+[mergetool]
 	prompt = false

@@ -21,3 +21,4 @@ xterm*saveLines: 4096
 ! Turn the scrollbar on, and put it on the right
 xterm*scrollBar: true
 xterm*rightScrollBar: true
+Xcursor.size: 12
