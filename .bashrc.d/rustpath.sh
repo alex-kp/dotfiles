@@ -1,0 +1,1 @@
+pathprepend ${HOME}/.cargo/bin
