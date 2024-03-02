@@ -10,10 +10,6 @@
 	path = .vim/pack/plugins/start/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
 	shallow = true
-[submodule ".vim/pack/plugins/start/vim-gitgutter"]
-	path = .vim/pack/plugins/start/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
-	shallow = true
 [submodule ".vim/pack/plugins/start/vim-devicons"]
 	path = .vim/pack/plugins/start/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons.git
@@ -42,10 +38,6 @@
 	shallow = true
 	path = .vim/pack/plugins/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/pack/plugins/start/vimspector"]
-	shallow = true
-	path = .vim/pack/plugins/start/vimspector
-	url = https://github.com/puremourning/vimspector.git
 [submodule ".vim/pack/plugins/start/nerdtree"]
 	shallow = true
 	path = .vim/pack/plugins/start/nerdtree
@@ -75,3 +67,11 @@
 	shallow = true
 	path = .vim/pack/plugins/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule ".vim/pack/plugins/start/vim-gitgutter"]
+	shallow = true
+	path = .vim/pack/plugins/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/pack/plugins/start/fzf.vim"]
+	shallow = true
+	path = .vim/pack/plugins/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
