@@ -93,3 +93,6 @@ vim-plugin-update-all () {
     config submodule update --rebase --remote
 }
 
+vim-fontsize () {
+    sed -i "s/Bold\\\\ [0-9]\\+/Bold\\\\ ${1}/g" ~/.vim/gvimrc
+}
