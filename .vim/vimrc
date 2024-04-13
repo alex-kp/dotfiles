@@ -42,6 +42,10 @@ let g:ycm_log_level = 'info'
 let g:ycm_auto_hover = ''
 let g:ycm_clangd_args = ['--clang-tidy']
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_enable_semantic_highlighting=1
+"let g:ycm_enable_inlay_hints=1
+"let g:ycm_clear_inlay_hints_in_insert_mode=1
+"nnoremap <silent> <Leader>yh <Plug>(YCMToggleInlayHints)
 
 " Ripgrep
 nmap <Leader>rr :Rg <C-R><C-W><CR>
@@ -93,6 +97,7 @@ nnoremap <Leader>de :call vimspector#Reset()<CR>
 
 " ALE
 let g:ale_floating_window_border = repeat([''], 6)
+let g:airline#extensions#ale#enabled = 1
 " Turn on syntax highlighting
 syntax on
 
