@@ -47,6 +47,28 @@ let g:ycm_enable_semantic_highlighting=1
 "let g:ycm_clear_inlay_hints_in_insert_mode=1
 "nnoremap <silent> <Leader>yh <Plug>(YCMToggleInlayHints)
 
+packadd termdebug
+
+" embedded debug session needs ./tools/gdb to be the embedded gdb
+nmap <Leader>de let g:termdebug_config = {}
+            \:let g:termdebug_config['command'] =
+            \"./tools/gdb/bin/arm-none-eabi-gdb"<CR>
+            \:Termdebug<CR><C-W>L<C-W>:Program<CR><C-W>:q<CR>
+            \<C-W>:Gdb<CR>source jlink.gdbinit<CR>rc<CR>
+" Go to gdb window
+nmap <Leader>dg :Gdb<CR>
+
+nmap <Leader>df :Finish<CR>
+nmap <Leader>dc :Continue<CR>
+" interrupt
+nmap <Leader>di :Stop<CR>
+
+nmap <Leader>db :Break<CR>
+nmap <Leader>dd :Clear<CR>
+nmap <Leader>du :Until<CR>
+nmap <Leader>dn :Over<CR>
+nmap <Leader>ds :Step<CR>
+
 " Ripgrep
 nmap <Leader>rr :Rg <C-R><C-W><CR>
 
@@ -74,26 +96,6 @@ autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
-
-" Vimspector
-let g:vimspector_enable_mappings = 'HUMAN'
-" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
-" for normal mode - the word under the cursor
-nmap <Leader>di <Plug>VimspectorBalloonEval
-" for visual mode, the visually selected text
-xmap <Leader>di <Plug>VimspectorBalloonEval
-" Exit the debug mode
-nmap <Leader>dx <Plug>VimspectorBalloonEval
-" https://dev.to/iggredible/debugging-in-vim-with-vimspector-4n0m
-" nnoremap <Leader>dd :call vimspector#Launch()<CR>
-nnoremap <Leader>de :call vimspector#Reset()<CR>
-" nnoremap <Leader>dc :call vimspector#Continue()<CR>
-" nnoremap <Leader>dt :call vimspector#ToggleBreakpoint()<CR>
-" nnoremap <Leader>dT :call vimspector#ClearBreakpoints()<CR>
-" nmap <Leader>dk <Plug>VimspectorRestart
-" nmap <Leader>dh <Plug>VimspectorStepOut
-" nmap <Leader>dl <Plug>VimspectorStepInto
-" nmap <Leader>dj <Plug>VimspectorStepOver
 
 " ALE
 let g:ale_floating_window_border = repeat([''], 6)
