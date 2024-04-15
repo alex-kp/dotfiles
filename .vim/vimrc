@@ -50,7 +50,7 @@ let g:ycm_enable_semantic_highlighting=1
 packadd termdebug
 
 " embedded debug session needs ./tools/gdb to be the embedded gdb
-nmap <Leader>de let g:termdebug_config = {}
+nmap <Leader>de :let g:termdebug_config = {}<CR>
             \:let g:termdebug_config['command'] =
             \"./tools/gdb/bin/arm-none-eabi-gdb"<CR>
             \:Termdebug<CR><C-W>L<C-W>:Program<CR><C-W>:q<CR>
