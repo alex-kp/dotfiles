@@ -75,3 +75,5 @@
 	shallow = true
 	path = .vim/pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule ".vim/pack/plugins/start/resize-font.gvim.git"]
+	shallow = true

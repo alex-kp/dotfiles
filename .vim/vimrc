@@ -72,6 +72,14 @@ nmap <Leader>ds :Step<CR>
 " Ripgrep
 nmap <Leader>rr :Rg <C-R><C-W><CR>
 
+if executable('rg')
+    "set grepformat+=%f:%l:%c:%m
+    "set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+    "https://phelipetls.github.io/posts/extending-vim-with-ripgrep/
+    set grepformat=%f:%l:%c:%m
+    set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
+endif
+
 " find/replace
 nnoremap <c-s> :%s///g<left><left>
 
