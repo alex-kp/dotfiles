@@ -47,7 +47,8 @@ let g:ycm_enable_semantic_highlighting=1
 "let g:ycm_clear_inlay_hints_in_insert_mode=1
 "nnoremap <silent> <Leader>yh <Plug>(YCMToggleInlayHints)
 
-packadd termdebug
+"Seems that this is already loaded on recent vims?
+"packadd termdebug
 
 " embedded debug session needs ./tools/gdb to be the embedded gdb
 nmap <Leader>de :let g:termdebug_config = {}<CR>
