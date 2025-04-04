@@ -151,6 +151,8 @@
 	# Detect copies as well as renames
 	renames = copies
 	tool = meld
+	algorithm = histogram
+	mnemonicPrefix = true
 
 [help]
 
@@ -164,6 +166,7 @@
     #log = true
 
 [push]
+	autoSetupRemote = true
 	# change to maching for machines with older versions of git 1.x.x
     #default = simple
 
@@ -198,7 +201,10 @@
 #[remote "origin"]
 	#fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
 
+# Some from:
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
 [commit]
+	verbose = true
     #gpgsign = true
 [pull]
     #rebase = true
@@ -208,3 +214,9 @@
 	prompt = false
 [mergetool]
 	prompt = false
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
+[tag]
+	sort = version:refname

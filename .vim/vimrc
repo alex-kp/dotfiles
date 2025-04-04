@@ -27,7 +27,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " tagbar
-nmap <Leader>tt :TagbarToggle<CR>
+" nmap <Leader>tt :TagbarToggle<CR>
 " make
 nmap <Leader>m :w <bar> :make<CR>
 
@@ -89,12 +89,12 @@ let g:clang_format#detect_style_file = 1
 let g:clang_format#style_options = {
             \ "BasedOnStyle": "WebKit",
             \ "AlignConsecutiveMacros": "AcrossEmptyLines",
-            \ "ColumnLimit":     80,
+            \ "ColumnLimit":     79,
             \ "KeepEmptyLinesAtTheStartOfBlocks": "false",
             \ "PointerAlignment": "Middle",
             \ "ReferenceAlignment": "Right",
             \ "SpaceAfterCStyleCast": "true",
-            \ "SpaceInEmptyParentheses": "true"}
+            \ "SpaceInEmptyParentheses": "false"}
 
 
 " map to <Leader>cf in C++ code
@@ -109,6 +109,7 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 " ALE
 let g:ale_floating_window_border = repeat([''], 6)
 let g:airline#extensions#ale#enabled = 1
+let g:ale_c_parse_compile_commands = 1
 " Turn on syntax highlighting
 syntax on
 

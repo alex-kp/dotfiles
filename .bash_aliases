@@ -29,8 +29,8 @@ config-fontinstall () {
     # Install the font
     ( mkdir -p ${FONTDIR} &&
         cd ${FONTDIR} &&
-        wget -c https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/${1}.zip &&
-        unzip ${1}.zip )
+        wget -c https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/${1}.zip &&
+        unzip -o ${1}.zip )
     #rm ${1}.zip
     fc-cache -fv
 }
